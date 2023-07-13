@@ -38,7 +38,13 @@ class LoginActivity : AppCompatActivity() {
             val password = etPassword.text.toString().trim()
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
+                if (email.equals("admin", ignoreCase = true) && password == "admin") {
+                    // Admin login successful
+                    Toast.makeText(this, "Admin login successful", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, MainActivity::class.java))
+                } else {
                 loginUser(email, password)
+                }
             } else {
                 Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show()
             }
@@ -55,6 +61,8 @@ class LoginActivity : AppCompatActivity() {
                     finish()
                 } else {
                     Toast.makeText(this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show()
+                    etEmail.text.clear()
+                    etPassword.text.clear()
                 }
             }
 

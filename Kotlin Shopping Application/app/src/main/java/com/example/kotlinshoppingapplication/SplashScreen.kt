@@ -14,7 +14,7 @@ class SplashScreen : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         Handler().postDelayed({
-            val intent = Intent(this@SplashScreen, LoginActivity::class.java)
+            val intent = Intent(this@SplashScreen, ProductInsertActivity::class.java)
             startActivity(intent)
             finish()
         }, SPLASH_DELAY)
